@@ -1,0 +1,187 @@
+/* ===== Schriften (Rubik, selbst gehostet) ===== */
+@font-face {
+  font-family: "Rubik";
+  src: url("fonts/Rubik-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("fonts/Rubik-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("fonts/Rubik-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== Farben ===== */
+:root {
+  --primary: #CB773D;
+  --secondary: #5F2A0D;
+  --accent: #55798A;
+  --text: #000000;
+  --bg: #FFEBC3;
+
+  --font: "Rubik", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ===== Grundlagen ===== */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-weight: 300;          /* Light: Textkörper */
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  background: var(--bg);
+  color: var(--text);
+}
+
+img { max-width: 100%; height: auto; }
+
+strong, b { font-weight: 700; }
+
+/* ===== Überschriften (Bold) ===== */
+h1, h2 {
+  font-family: var(--font);
+  font-weight: 700;
+  color: var(--secondary);
+  letter-spacing: -0.01em;
+}
+h1 { font-size: 2.4rem; line-height: 1.15; margin: 2rem 0 0.75rem; }
+h2 { font-size: 1.6rem; line-height: 1.25; margin: 2.5rem 0 0.75rem; }
+
+/* ===== Untertitel (Regular) ===== */
+h3 {
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: var(--secondary);
+  margin: 0 0 0.4rem;
+}
+.lead {
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+/* ===== Links ===== */
+a { color: var(--secondary); }
+a:hover { color: var(--accent); }
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ===== Header und Navigation ===== */
+header {
+  background: var(--secondary);
+  color: var(--bg);
+}
+.header-inner {
+  max-width: 54rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+}
+.logo {
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
+nav a {
+  color: var(--bg);
+  font-weight: 400;
+  text-decoration: none;
+  padding: 0.25rem 0;
+  border-bottom: 3px solid transparent;
+}
+nav a:hover { color: var(--bg); border-bottom-color: var(--primary); }
+nav a[aria-current="page"] { border-bottom-color: var(--primary); font-weight: 700; }
+
+/* ===== Inhalt ===== */
+main {
+  max-width: 54rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 2rem;
+}
+main p, main li { max-width: 42rem; }
+
+/* ===== Button ===== */
+.button {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.7rem 1.2rem;
+  background: var(--primary);
+  color: var(--text);
+  font-family: var(--font);
+  font-weight: 700;
+  text-decoration: none;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.button:hover { background: var(--secondary); color: var(--bg); }
+
+/* ===== Karten (z. B. Angebot) ===== */
+.karten {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.karte {
+  padding: 1.1rem;
+  background: rgba(255, 255, 255, 0.45);
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+}
+.karte p { margin: 0; }
+
+/* ===== Einträge (z. B. Aktuelles) ===== */
+.eintrag {
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  border-left: 4px solid var(--accent);
+}
+.eintrag time {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--secondary);
+}
+
+/* ===== Footer ===== */
+footer {
+  background: var(--secondary);
+  color: var(--bg);
+  margin-top: 2rem;
+}
+.footer-inner {
+  max-width: 54rem;
+  margin: 0 auto;
+  padding: 1.25rem;
+  font-size: 0.9rem;
+}
+footer a { color: var(--bg); }
+footer a:hover { color: var(--primary); }
+
+/* ===== Kleine Bildschirme ===== */
+@media (max-width: 30rem) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.4rem; }
+}
