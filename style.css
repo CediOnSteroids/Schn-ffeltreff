@@ -1,187 +1,65 @@
-/* ===== Schriften (Rubik, selbst gehostet) ===== */
-@font-face {
-  font-family: "Rubik";
-  src: url("fonts/Rubik-Light.ttf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Rubik";
-  src: url("fonts/Rubik-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Rubik";
-  src: url("fonts/Rubik-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
+@font-face{font-family:"Rubik";src:url("fonts/Rubik-Light.ttf") format("truetype");font-weight:300;font-display:swap}
+@font-face{font-family:"Rubik";src:url("fonts/Rubik-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Rubik";src:url("fonts/Rubik-Bold.ttf") format("truetype");font-weight:700;font-display:swap}
+:root{--primary:#CB773D;--secondary:#5F2A0D;--accent:#55798A;--text:#000;--bg:#FFEBC3;--font:"Rubik",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;font:300 1.0625rem/1.65 var(--font);background:var(--bg);color:var(--text)}
+main{flex:1;width:100%;max-width:54rem;margin:0 auto;padding:5rem 1.25rem 2rem}
+img{display:block;max-width:100%;height:auto;background:rgba(95,42,13,.12)}
+a{color:var(--secondary)}a:hover{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+strong{font-weight:700}
+h1,h2,h3{color:var(--secondary);letter-spacing:-.01em;line-height:1.2}
+h1,h2{font-weight:700}
+h1{font-size:2.4rem;margin:0 0 1rem}
+h2{font-size:1.6rem;margin:2rem 0 .5rem}
+h3{font-weight:400;font-size:1.2rem;margin:0 0 .4rem}
+.lead{font-weight:400;font-size:1.2rem}
 
-/* ===== Farben ===== */
-:root {
-  --primary: #CB773D;
-  --secondary: #5F2A0D;
-  --accent: #55798A;
-  --text: #000000;
-  --bg: #FFEBC3;
+/* Menü-Button (immer oben rechts) und Menü */
+.menu-btn{position:fixed;top:1rem;right:1rem;z-index:30;width:3.25rem;height:3.25rem;border-radius:50%;border:2px solid var(--primary);background:var(--secondary);cursor:pointer;display:grid;place-content:center;gap:.3rem;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.menu-btn span{display:block;width:1.4rem;height:3px;background:var(--bg);border-radius:2px;transition:transform .25s,opacity .25s}
+.menu-btn[aria-expanded=true] span:nth-child(1){transform:translateY(.5rem) rotate(45deg)}
+.menu-btn[aria-expanded=true] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded=true] span:nth-child(3){transform:translateY(-.5rem) rotate(-45deg)}
+#menu{position:fixed;inset:0;z-index:20;background:var(--secondary);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:1.25rem;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
+#menu.offen{opacity:1;visibility:visible}
+#menu a{color:var(--bg);font-size:1.8rem;font-weight:700;text-decoration:none;border-bottom:3px solid transparent}
+#menu a:hover,#menu a[aria-current]{color:var(--bg);border-bottom-color:var(--primary)}
 
-  --font: "Rubik", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-}
+/* Start-Animation (Home) */
+#splash{position:fixed;inset:0;z-index:40;background:var(--bg);display:grid;place-content:center;animation:weg .6s ease 2.4s forwards}
+#splash svg{width:min(60vw,14rem);height:auto}
+#splash circle{fill:none;stroke:var(--primary);stroke-width:6;stroke-dasharray:289;stroke-dashoffset:289;animation:zeichne 1.4s ease .2s forwards}
+#splash text{fill:var(--secondary);font:700 52px var(--font);opacity:0;animation:ein .6s ease 1.2s forwards}
+@keyframes zeichne{to{stroke-dashoffset:0}}
+@keyframes ein{to{opacity:1}}
+@keyframes weg{to{opacity:0;visibility:hidden}}
+@media(prefers-reduced-motion:reduce){#splash{display:none}}
+.hero{min-height:75vh;display:grid;align-content:center;justify-items:center;text-align:center}
+.hero p{max-width:40rem;margin:0 0 1rem}
 
-/* ===== Grundlagen ===== */
-* { box-sizing: border-box; }
+/* Blog */
+.post{margin:2.5rem 0;padding-left:1rem;border-left:4px solid var(--accent);text-align:left}
+.post time{display:block;font-size:.9rem;font-weight:400;color:var(--secondary)}
+.post h2{margin:.2rem 0 .75rem}
+.post figure{margin:1rem 0}
+.post figcaption{font-size:.9rem}
 
-html { scroll-behavior: smooth; }
+/* Karten */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1.25rem;margin-top:1rem}
+.card{background:rgba(255,255,255,.45);border:2px solid var(--primary);border-radius:8px;padding:1.1rem}
+.card img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px;margin-bottom:.8rem}
+.card h2{margin-top:0}
+.rolle{font-weight:400;color:var(--secondary);margin:0 0 .6rem}
+dl{display:grid;grid-template-columns:auto 1fr;gap:.25rem .9rem;margin:.75rem 0}
+dt{font-weight:700}dd{margin:0}
+.preis{font-size:1.4rem;font-weight:700;color:var(--secondary);margin:.25rem 0}
+.links{display:flex;flex-wrap:wrap;gap:.4rem 1rem;padding:0;margin:.75rem 0 0;list-style:none}
+.btn{display:inline-block;padding:.65rem 1.1rem;background:var(--primary);color:var(--text);font:700 1rem var(--font);text-decoration:none;border:0;border-radius:6px;cursor:pointer}
+.btn:hover{background:var(--secondary);color:var(--bg)}
 
-body {
-  margin: 0;
-  font-family: var(--font);
-  font-weight: 300;          /* Light: Textkörper */
-  font-size: 1.0625rem;
-  line-height: 1.65;
-  background: var(--bg);
-  color: var(--text);
-}
-
-img { max-width: 100%; height: auto; }
-
-strong, b { font-weight: 700; }
-
-/* ===== Überschriften (Bold) ===== */
-h1, h2 {
-  font-family: var(--font);
-  font-weight: 700;
-  color: var(--secondary);
-  letter-spacing: -0.01em;
-}
-h1 { font-size: 2.4rem; line-height: 1.15; margin: 2rem 0 0.75rem; }
-h2 { font-size: 1.6rem; line-height: 1.25; margin: 2.5rem 0 0.75rem; }
-
-/* ===== Untertitel (Regular) ===== */
-h3 {
-  font-family: var(--font);
-  font-weight: 400;
-  font-size: 1.2rem;
-  color: var(--secondary);
-  margin: 0 0 0.4rem;
-}
-.lead {
-  font-weight: 400;
-  font-size: 1.2rem;
-}
-
-/* ===== Links ===== */
-a { color: var(--secondary); }
-a:hover { color: var(--accent); }
-a:focus-visible,
-button:focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 3px;
-}
-
-/* ===== Header und Navigation ===== */
-header {
-  background: var(--secondary);
-  color: var(--bg);
-}
-.header-inner {
-  max-width: 54rem;
-  margin: 0 auto;
-  padding: 1rem 1.25rem;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem 1.5rem;
-}
-.logo {
-  font-weight: 700;
-  font-size: 1.3rem;
-}
-nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
-nav a {
-  color: var(--bg);
-  font-weight: 400;
-  text-decoration: none;
-  padding: 0.25rem 0;
-  border-bottom: 3px solid transparent;
-}
-nav a:hover { color: var(--bg); border-bottom-color: var(--primary); }
-nav a[aria-current="page"] { border-bottom-color: var(--primary); font-weight: 700; }
-
-/* ===== Inhalt ===== */
-main {
-  max-width: 54rem;
-  margin: 0 auto;
-  padding: 1rem 1.25rem 2rem;
-}
-main p, main li { max-width: 42rem; }
-
-/* ===== Button ===== */
-.button {
-  display: inline-block;
-  margin-top: 0.75rem;
-  padding: 0.7rem 1.2rem;
-  background: var(--primary);
-  color: var(--text);
-  font-family: var(--font);
-  font-weight: 700;
-  text-decoration: none;
-  border: 0;
-  border-radius: 6px;
-  cursor: pointer;
-}
-.button:hover { background: var(--secondary); color: var(--bg); }
-
-/* ===== Karten (z. B. Angebot) ===== */
-.karten {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-}
-.karte {
-  padding: 1.1rem;
-  background: rgba(255, 255, 255, 0.45);
-  border: 2px solid var(--primary);
-  border-radius: 8px;
-}
-.karte p { margin: 0; }
-
-/* ===== Einträge (z. B. Aktuelles) ===== */
-.eintrag {
-  margin: 1.5rem 0;
-  padding-left: 1rem;
-  border-left: 4px solid var(--accent);
-}
-.eintrag time {
-  display: block;
-  font-size: 0.9rem;
-  font-weight: 400;
-  color: var(--secondary);
-}
-
-/* ===== Footer ===== */
-footer {
-  background: var(--secondary);
-  color: var(--bg);
-  margin-top: 2rem;
-}
-.footer-inner {
-  max-width: 54rem;
-  margin: 0 auto;
-  padding: 1.25rem;
-  font-size: 0.9rem;
-}
-footer a { color: var(--bg); }
-footer a:hover { color: var(--primary); }
-
-/* ===== Kleine Bildschirme ===== */
-@media (max-width: 30rem) {
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.4rem; }
-}
+footer{background:var(--secondary);color:var(--bg);padding:1.25rem;text-align:center;font-size:.9rem}
+footer p{margin:0}footer a{color:var(--bg)}footer a:hover{color:var(--primary)}
+@media(max-width:30rem){h1{font-size:2rem}h2{font-size:1.4rem}}
