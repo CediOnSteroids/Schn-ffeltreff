@@ -6,7 +6,7 @@
   Farbsystem
   --secondary  Hauptfarbe für Überschriften, Menü, Buttons (Ruhezustand)
   --accent     nur für Interaktion: Hover, Fokus, Klick
-  --primary    nur Start-Animation
+  --primary    Buttons und Start-Animation
 */
 :root{
   --primary:#CB773D;
@@ -299,14 +299,14 @@ dd{margin:0}
 .btn{
   display:inline-block;
   padding:.7rem 1.3rem;
-  background:var(--secondary);
-  color:var(--bg);
-  font:400 1rem/1.2 var(--font);
+  background:var(--primary);
+  color:var(--text);
+  font:700 1rem/1.2 var(--font);
   text-decoration:none;
   border:0;
   border-radius:8px;
   cursor:pointer;
-  transition:background-color .25s,transform .2s var(--ease);
+  transition:background-color .25s,color .25s,transform .2s var(--ease);
 }
 .btn:hover{background:var(--accent);color:var(--bg)}
 .btn:active{transform:scale(.97)}
