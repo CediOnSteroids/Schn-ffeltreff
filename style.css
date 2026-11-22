@@ -71,9 +71,14 @@ h1,h2,h3{
   letter-spacing:-.01em;
   line-height:1.2;
 }
-h1,h2{font-weight:700}
-h1{font-size:clamp(2.1rem,5vw,2.8rem);margin:0 0 1rem}
-h2{font-size:1.5rem;margin:2.25rem 0 .5rem}
+h1,h2{
+  font-weight:700;
+  padding-bottom:.6rem;
+  border-bottom:1px solid var(--linie);
+}
+h1{font-size:clamp(2.1rem,5vw,2.8rem);margin:0 0 1.25rem}
+h2{font-size:1.5rem;margin:2.25rem 0 .75rem}
+.hero h1{padding-bottom:0;border-bottom:0}
 h3{font-weight:400;font-size:1.2rem;margin:0 0 .4rem}
 .lead{font-weight:400;font-size:1.2rem}
 
@@ -231,15 +236,14 @@ h3{font-weight:400;font-size:1.2rem;margin:0 0 .4rem}
 /* Aktuelles */
 .post{
   margin:0;
-  padding:2rem 0;
-  border-top:1px solid var(--linie);
+  padding:1.5rem 0 .5rem;
 }
 .post time{
   display:block;
   font-size:.9rem;
   color:var(--gedaempft);
 }
-.post h2{margin:.3rem 0 .6rem}
+.post h2{margin:.3rem 0 .75rem}
 .post figure{margin:1.25rem 0 0}
 .post img{border-radius:8px}
 .post figcaption{
