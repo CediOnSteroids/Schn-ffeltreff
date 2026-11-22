@@ -276,6 +276,7 @@ dl{
   gap:.25rem .9rem;
   margin:.75rem 0;
 }
+.card dl:only-child{margin:0}
 dt{color:var(--gedaempft)}
 dd{margin:0}
 .preis{
